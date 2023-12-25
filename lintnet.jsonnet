@@ -12,5 +12,15 @@ function(param) {
         'newline.jsonnet',
       ],
     },
+    {
+      data_files: [
+        '.github/workflows/*.yml',
+        '.github/workflows/*.yaml',
+      ],
+      lint_files: [
+        'ghalint/job_permissions/*.jsonnet',
+        '!ghalint/job_permissions/*_test.jsonnet',
+      ],
+    },
   ],
 }
