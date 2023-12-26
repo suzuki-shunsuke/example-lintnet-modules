@@ -1,13 +1,11 @@
-local utils = {
-  array: import '../../array.jsonnet',
-};
+local filterMapWithIndex = (import '../../array.jsonnet').filterMapWithIndex;
 
 local sort(envs) =
   local _ = std.sort(envs);
   envs;
 
 function(param) sort(
-  utils.array.filterMapWithIndex(
+  filterMapWithIndex(
     function(idx, step) std.objectHas(step, 'run') && !std.objectHas(step, 'shell'),
     function(idx, step) {
       name: 'shell is required if run is set',
