@@ -6,7 +6,6 @@ local sort(envs) =
 function(param) sort([
   {
     name: 'Job should not set secrets to environment variables',
-    failed: true,
     location: {
       job: job.key,
       env: env.key,

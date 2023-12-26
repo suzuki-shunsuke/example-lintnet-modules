@@ -2,12 +2,7 @@ function(param) [
   {
     name: 'pass',
     data_file: 'README.md',
-    result: [
-      {
-        name: 'files must end with a newline',
-        failed: false,
-      },
-    ],
+    result: [],
   },
   {
     name: 'fail',
@@ -15,7 +10,6 @@ function(param) [
     result: [
       {
         name: 'files must end with a newline',
-        failed: true,
       },
     ],
   },

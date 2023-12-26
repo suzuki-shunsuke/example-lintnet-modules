@@ -9,9 +9,10 @@ function(param) [
     data_file: 'fail.yaml',
     result: [
       {
-        name: 'write-all permission should not be used',
+        name: "Job's container image tag should not be latest",
         location: {
-          job_name: 'build',
+          job: 'build',
+          image: 'node:latest',
         },
       },
     ],

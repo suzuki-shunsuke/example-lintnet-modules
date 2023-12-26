@@ -10,7 +10,6 @@ function(param) [
     result: [
       {
         name: 'secrets: inherit should not be used',
-        failed: true,
         location: {
           job_name: 'build',
         },

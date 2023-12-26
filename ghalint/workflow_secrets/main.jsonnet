@@ -6,7 +6,6 @@ local sort(envs) =
 function(param) [
   {
     name: 'Workflows should not set secrets to environment variables',
-    failed: true,
     location: {
       env: env.key,
     },

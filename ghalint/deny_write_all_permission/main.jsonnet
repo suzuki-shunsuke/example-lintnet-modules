@@ -1,7 +1,6 @@
 function(param) [
   {
     name: 'write-all permission should not be used',
-    failed: true,
     location: {
       job_name: job.key,
     },

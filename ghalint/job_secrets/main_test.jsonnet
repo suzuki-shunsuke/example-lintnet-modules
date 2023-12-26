@@ -10,7 +10,6 @@ function(param) [
     result: [
       {
         name: 'Job should not set secrets to environment variables',
-        failed: true,
         location: {
           env: 'API_KEY',
           job: 'build',
@@ -18,7 +17,6 @@ function(param) [
       },
       {
         name: 'Job should not set secrets to environment variables',
-        failed: true,
         location: {
           env: 'GITHUB_TOKEN',
           job: 'build',

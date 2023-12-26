@@ -10,14 +10,12 @@ function(param) [
     result: [
       {
         name: 'Workflows should not set secrets to environment variables',
-        failed: true,
         location: {
           env: 'API_KEY',
         },
       },
       {
         name: 'Workflows should not set secrets to environment variables',
-        failed: true,
         location: {
           env: 'GITHUB_TOKEN',
         },

@@ -15,7 +15,6 @@ function(param) [
     result: [
       {
         name: 'All jobs should have the field permissions',
-        failed: true,
         location: {
           job_name: 'build',
         },
