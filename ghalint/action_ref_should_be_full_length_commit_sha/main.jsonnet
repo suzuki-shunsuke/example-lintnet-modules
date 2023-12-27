@@ -3,6 +3,14 @@ local sort(envs) =
   local _ = std.sort(envs);
   envs;
 
+local check(elem, param) =
+  std.objectHas(elem, 'uses') &&
+  !match('@[a-fA-f0-9]{40}$', elem.uses) &&
+  !std.any(std.map(
+    function(excludedAction) std.startsWith(elem.uses, excludedAction + '@'),
+    std.get(std.get(param, 'custom', {}), 'excludes', [])
+  ));
+
 function(param) sort([
   {
     name: "action's ref should be full length commit SHA",
@@ -12,7 +20,7 @@ function(param) sort([
     },
   }
   for job in std.objectKeysValues(param.data.value.jobs)
-  if std.objectHas(job.value, 'uses') && !match('@[a-fA-f0-9]{40}$', job.value.uses)
+  if check(job.value, param)
 ] + [
   {
     name: "action's ref should be full length commit SHA",
@@ -25,5 +33,5 @@ function(param) sort([
   }
   for job in std.objectKeysValues(param.data.value.jobs)
   for step in std.get(job.value, 'steps', [])
-  if std.objectHas(step, 'uses') && !match('@[a-fA-f0-9]{40}$', step.uses)
+  if check(step, param)
 ])

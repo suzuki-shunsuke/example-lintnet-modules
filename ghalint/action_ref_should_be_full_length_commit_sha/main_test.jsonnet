@@ -2,6 +2,11 @@ function(param) [
   {
     name: 'pass',
     data_file: 'pass.yaml',
+    param: {
+      custom: {
+        excludes: ['slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml'],
+      },
+    },
     result: [],
   },
   {
