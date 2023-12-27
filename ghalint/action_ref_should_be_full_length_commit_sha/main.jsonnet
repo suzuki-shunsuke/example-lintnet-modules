@@ -5,6 +5,7 @@ local sort(envs) =
 
 local check(elem, param) =
   std.objectHas(elem, 'uses') &&
+  !std.startsWith(elem.uses, './') &&
   !match('@[a-fA-f0-9]{40}$', elem.uses) &&
   !std.any(std.map(
     function(excludedAction) std.startsWith(elem.uses, excludedAction + '@'),
