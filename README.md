@@ -2,6 +2,11 @@
 
 Examples of [lintnet Modules](https://lintnet.github.io/docs/module)
 
+## Modules
+
+- [ghalint](ghalint): Port of [suzuki-shunsuke/ghalint](https://github.com/suzuki-shunsuke/ghalint), which is a linter for GitHub Actions
+- [array](array): [Imported modules](https://lintnet.github.io/docs/module#2-imported-module) for array
+
 ## How to use
 
 ### Imported modules
