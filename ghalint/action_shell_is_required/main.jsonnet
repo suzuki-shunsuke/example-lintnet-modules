@@ -1,4 +1,4 @@
-local filterMapWithIndex = (import '../../array.jsonnet').filterMapWithIndex;
+local filterMapWithIndex = (import '../../array/array.jsonnet').filterMapWithIndex;
 
 local sort(envs) =
   local _ = std.sort(envs);
