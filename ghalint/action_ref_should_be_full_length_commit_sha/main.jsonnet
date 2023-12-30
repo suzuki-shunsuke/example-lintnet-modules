@@ -9,7 +9,7 @@ local check(elem, param) =
   !match('@[a-fA-f0-9]{40}$', elem.uses) &&
   !std.any(std.map(
     function(excludedAction) std.startsWith(elem.uses, excludedAction + '@'),
-    std.get(std.get(param, 'custom', {}), 'excludes', [])
+    std.get(param.config, 'excludes', [])
   ));
 
 function(param) sort([
