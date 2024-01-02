@@ -23,5 +23,12 @@ function(param) sort([
       !std.objectHas(std.get(step, 'with', {}), 'repositories') &&
       std.objectHas(std.get(step, 'with', {}), 'owner')
     )
-  )
+  ) &&
+    std.length(std.filter(
+      function(elem)
+        param.data.file_path == elem.workflow_file_path &&
+        job.key == elem.job_name &&
+        std.get(step, 'id', '') == elem.step_id,
+      std.get(param.config, 'excludes', [])
+    )) == 0
 ])
