@@ -24,4 +24,22 @@ function(param) [
       },
     ],
   },
+  {
+    name: 'excludes',
+    data_file: 'fail.yaml',
+    param: {
+      data: {
+        file_path: '.github/workflows/fail.yaml',
+      },
+      config: {
+        excludes: [
+          {
+            job_name: 'build',
+            workflow_file_path: '.github/workflows/fail.yaml',
+          },
+        ],
+      },
+    },
+    result: [],
+  },
 ]

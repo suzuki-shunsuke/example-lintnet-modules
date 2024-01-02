@@ -1,9 +1,6 @@
 local match = std.native('regexp.MatchString');
-local sort(envs) =
-  local _ = std.sort(envs);
-  envs;
 
-function(param) sort([
+function(param) std.sort([
   {
     name: 'Job should not set secrets to environment variables',
     location: {
@@ -12,6 +9,12 @@ function(param) sort([
     },
   }
   for job in std.objectKeysValues(param.data.value.jobs)
-  for env in sort(std.objectKeysValues(std.get(job.value, 'env', {})))
+  if std.length(std.filter(
+    function(elem)
+      elem.workflow_file_path == param.data.file_path &&
+      elem.job_name == job.key,
+    std.get(param.config, 'excludes', [])
+  )) == 0
+  for env in std.objectKeysValues(std.get(job.value, 'env', {}))
   if match('\\${{ *github\\.token *}}', env.value) || match('\\${{ *secrets\\.', env.value)
-])
+], function(x) x.location.job + '/' + x.location.env)
