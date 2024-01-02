@@ -9,7 +9,8 @@ function(param) {
         '!testdata/*',
       ],
       lint_files: [
-        'newline.jsonnet',
+        'nllint/**/*.jsonnet',
+        '!nllint/**/*_test.jsonnet',
       ],
     },
     {
